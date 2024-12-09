@@ -48,8 +48,8 @@ Follow these steps to install and manage Go using **SDKMAN!**:
    ```
 9.clone and go to the folder
    ```bash
-   git clone https://github.com/yourusername/projectname.git
-   cd projectname
+   git clone https://github.com/saliou-tech/ednova-assignments.git
+   cd assignment-1
    ```
 10.Run the application:
    ```bash

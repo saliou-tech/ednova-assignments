@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Path to the commit message file
+commit_message_file=$1
+
+# Read the commit message
+commit_message=$(cat "$commit_message_file")
+
+# Enforce the message to start with "ednova-assignement-2"
+if ! echo "$commit_message" | grep -qE "^ednova-assignement-2"; then
+    echo "ERROR: Commit message must start with 'ednova-assignement-2'"
+    exit 1
+fi

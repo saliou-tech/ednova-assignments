@@ -1,11 +1,13 @@
 #!/usr/bin/sh
 
-
-# Path to the commit message file
+# Path to the commit message file passed by Git
 commit_message_file=$1
 
+# Read the commit message from the file
+commit_message=$(cat "$commit_message_file")
+
+# Validate the commit message format
 if ! echo "$commit_message" | grep -qE "^ednova-assignement-2: .+"; then
     echo "ERROR: Commit message must start with 'ednova-assignement-2:' followed by a description."
     exit 1
 fi
-

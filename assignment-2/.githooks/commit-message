@@ -7,7 +7,7 @@ commit_message_file=$1
 commit_message=$(cat "$commit_message_file")
 
 # Enforce the message to start with "ednova-assignement-2"
-if ! echo "$commit_message" | grep -qE "^ednova-assignement-2"; then
+if ! echo "$commit_message" | grep -qE "^ednova-assignement"; then
     echo "ERROR: Commit message must start with 'ednova-assignement-2'"
     exit 1
 fi

@@ -1,97 +1,93 @@
-1. Créer un étudiant
+##BASE URL
+http://api/v1
+
+## ADD STUDENT
    Méthode : POST
    Endpoint : /students
+   ```bash
    Request Body :
-   json
-   Copier le code
+
    {
-   "name": "John Doe",
-   "email": "john.doe@example.com",
-   "dateOfBirth": "2000-01-01"
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "dateOfBirth": "1998-06-15"
    }
-RESPONSE
-2. {
-   "studentId": "12345",
-   "name": "John Doe",
-   "email": "john.doe@example.com",
-   "dateOfBirth": "2000-01-01",
-   "enrollments": []
+
+   RESPONSE
+   {  "id"      :1
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "dateOfBirth": "1998-06-15"
    }
-2. Récupérer un étudiant par ID
+2.Récupérer un étudiant par ID
    Méthode : GET
    Endpoint : /students/{id}
    Response :
-{
-   "studentId": "12345",
-   "name": "John Doe",
-   "email": "john.doe@example.com",
-   "dateOfBirth": "2000-01-01",
-   "enrollments": [
-   {
-   "enrollmentId": "67890",
-   "courseId": "67890",
-   "courseName": "Mathematics 101",
-   "enrollmentDate": "2024-12-05T10:20:00Z"
-   },
-   {
-   "enrollmentId": "67891",
-   "courseId": "67891",
-   "courseName": "Physics 101",
-   "enrollmentDate": "2024-12-06T10:20:00Z"
-   }
-   ]
-   }
-3. Mettre à jour un étudiant
+      {
+         "studentId": "12345",
+         "name": "John Doe",
+         "email": "john.doe@example.com",
+         "dateOfBirth": "2000-01-01",
+         "enrollments": [
+         {
+         "enrollmentId": "67890",
+         "courseId": "67890",
+         "courseName": "Mathematics 101",
+         "enrollmentDate": "2024-12-05T10:20:00Z"
+         },
+         {
+         "enrollmentId": "67891",
+         "courseId": "67891",
+         "courseName": "Physics 101",
+         "enrollmentDate": "2024-12-06T10:20:00Z"
+         }
+         ]
+       }
+3. UPDATE A STUDENT 
    Méthode : PUT
    Endpoint : /students/{id}
    Request Body :
-   json
-   Copier le code
+   
    {
-   "name": "John Smith",
-   "email": "john.smith@example.com",
-   "dateOfBirth": "2000-01-01"
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "dateOfBirth": "2000-01-01"
    }
    Response :
-   json
-   Copier le code
+
    {
-   "studentId": "12345",
-   "name": "John Smith",
-   "email": "john.smith@example.com",
-   "dateOfBirth": "2000-01-01",
-   "enrollments": [
-   {
-   "enrollmentId": "67890",
-   "courseId": "67890",
-   "courseName": "Mathematics 101",
-   "enrollmentDate": "2024-12-05T10:20:00Z"
-   },
-   {
-   "enrollmentId": "67891",
-   "courseId": "67891",
-   "courseName": "Physics 101",
-   "enrollmentDate": "2024-12-06T10:20:00Z"
+      "studentId": "12345",
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "dateOfBirth": "2000-01-01",
+      "enrollments": [
+         {
+         "enrollmentId": "67890",
+         "courseId": "67890",
+         "courseName": "Mathematics 101",
+         "enrollmentDate": "2024-12-05T10:20:00Z"
+         },
+         {
+         "enrollmentId": "67891",
+         "courseId": "67891",
+         "courseName": "Physics 101",
+         "enrollmentDate": "2024-12-06T10:20:00Z"
+         }
+      ]
    }
-   ]
-   }
-4. Supprimer un étudiant
+4. delete a student 
    Méthode : DELETE
    Endpoint : /students/{id}
    Response :
-5. {
-   "message": "Student successfully deleted"
-   }
-5. Lister les étudiants
+    {
+      "message": "Student successfully deleted"
+      }
+5. List of students
    Méthode : GET
    Endpoint : /students
-   Query Params :
-   page : Numéro de page (facultatif).
-   size : Taille de la page (facultatif).
-   Response :
-   json
-   Copier le code
-   {
+ 
 6. {
    "data": [
    {

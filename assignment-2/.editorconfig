@@ -1,0 +1,23 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# Top-most EditorConfig file. This file will be applied to all files in the repository.
+
+# Java files: set tab size to 4 spaces, use Unix line endings (LF)
+[*.java]
+indent_style = space       # Use spaces instead of tabs
+indent_size = 4            # 4 spaces per indentation level
+tab_width = 4              # Tab width is 4 spaces
+end_of_line = lf           # Use LF (line feed) for line endings
+charset = utf-8            # Use UTF-8 character encoding
+insert_final_newline = true # Ensure file ends with a newline
+trim_trailing_whitespace = true # Remove trailing whitespaces
+
+# Settings for IntelliJ project files, to ensure consistency across editors
+[*.{iml,idea}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# Set line endings for all files (Windows-style line endings)
+[*.{md,yml,yaml,txt}]
+end_of_line = lf

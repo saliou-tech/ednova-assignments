@@ -2,6 +2,8 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.4.0"
 	id("io.spring.dependency-management") version "1.1.6"
+	id("com.diffplug.spotless") version "6.21.0"
+
 }
 
 group = "com.ednova"
@@ -13,9 +15,11 @@ java {
 	}
 }
 
+
 configurations {
 	compileOnly {
 		extendsFrom(configurations.annotationProcessor.get())
+
 	}
 }
 
@@ -32,6 +36,16 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
+spotless {
+	java {
+		googleJavaFormat("1.17.0")  // Or eclipse() if you're using Eclipse formatter
+		trimTrailingWhitespace()
+		endWithNewline()
+		// Enforce LF line endings
+		//lineEndings = 'UNIX'
+	}
+}
+
 
 tasks.withType<Test> {
 	useJUnitPlatform()
@@ -47,3 +61,4 @@ tasks.register<Copy>(installLocalGitHookTaskName) {
 tasks.named("build") {
 	dependsOn(installLocalGitHookTaskName)
 }
+

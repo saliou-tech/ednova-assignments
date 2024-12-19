@@ -23,6 +23,7 @@ configurations {
 	}
 }
 
+
 repositories {
 	mavenCentral()
 }
@@ -50,15 +51,33 @@ spotless {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+/*
 val installLocalGitHookTaskName = "installLocalGitHook"
+
 tasks.register<Copy>(installLocalGitHookTaskName) {
 	group = "PRE_BUILD_CUSTOM_TASKS"
 	description = "Install local git hooks"
 	from(".githooks")
-	into(".git/hooks")
+	into("${project.rootDir.parent}/.git/hooks")
 }
 
 tasks.named("build") {
 	dependsOn(installLocalGitHookTaskName)
 }
+*/
+
+val installLocalGitHookTaskName = "installLocalGitHook"
+
+tasks.register<Copy>(installLocalGitHookTaskName) {
+	group = "PRE_BUILD_CUSTOM_TASKS"
+	description = "Install local git hooks"
+	from("${project.rootDir}/.githooks") // Path to .githooks inside assignment-2
+	into("${project.rootDir.parent}/.git/hooks") // Path to .git/hooks in the parent directory
+	fileMode = 0b111101101 // Set executable permissions for the hooks
+}
+
+tasks.named("build") {
+	dependsOn(installLocalGitHookTaskName)
+}
+
 

@@ -1,1 +1,13 @@
-spring.application.name=assignment-2
+spring:
+  docker:
+    compose:
+      file: dependencies/docker-compose.yaml
+  data:
+    mongodb:
+      uri: mongodb://root:secret@mongodb:27017/mydatabase
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+  application:
+    name: assignment

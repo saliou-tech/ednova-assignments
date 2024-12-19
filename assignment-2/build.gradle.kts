@@ -73,7 +73,7 @@ tasks.register<Copy>(installLocalGitHookTaskName) {
 	description = "Install local git hooks"
 	from("${project.rootDir}/.githooks") // Path to .githooks inside assignment-2
 	into("${project.rootDir.parent}/.git/hooks") // Path to .git/hooks in the parent directory
-	fileMode = 0b111101101 // Set executable permissions for the hooks
+	//fileMode = 0b111101101 // Set executable permissions for the hooks
 }
 
 tasks.named("build") {
